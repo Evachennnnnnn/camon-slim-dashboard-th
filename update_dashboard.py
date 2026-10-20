@@ -1,64 +1,40 @@
 import json
 import re
 
-# 从飞书表格读取的数据
-tt_vv_sov_data = [
-    ["17-Oct", 0, 0, 109914, 417245, 78559, 0.0062, 18, 0.0042, 99344047.6190476, 0.000596064285714286],
-    ["18-Oct", 0, 0, None, None, None, None, None, None, None, 0.000596064285714286]
-]
-
-tt_search_sov_data = [
-    ["17-Oct", 0, 0, 109914, 417245, 11547, 0.0276743879495261, 0.0105, 1099714.28571429],
-    ["18-Oct", 0, 0, 0, 0, None, None, None, None]
-]
-
-gg_sov_data = [
-    ["19-Oct", 0.0163, 0.5]
-]
-
-meta_data = [
-    ["19-Oct", 0, None]
-]
-
-youtube_data = [
-    ["19-Oct", 0, None]
-]
-
-consideration_data = [
-    ["17-Oct", 448555, 4225531]
-]
-
-# 构建D对象
+# 从飞书表格读取的最新泰国数据（截至10/20）
 D = {
-    "updatedDate": "2026-10-19",
-    "dataAsOf": "10/17",
+    "updatedDate": "2026-10-20",
+    "dataAsOf": "10/20",
     
-    "alertBanner": "数据已更新至 10/17。Google Brand SOV 1.63%，Product SOV 50%，TT VV SOV 0.42%，TT Search SOV 1.05%，Consideration 448K。/ Data updated to 10/17. Google Brand SOV 1.63%, Product SOV 50%, TT VV SOV 0.42%, TT Search SOV 1.05%, Consideration 448K.",
+    "alertBanner": "数据已更新至 10/20。投放已启动！Google Brand SOV 1.64%，TT 消耗 210.57，Meta 消耗 97.75，Meta 曝光 389K。/ Data updated to 10/20. Campaign launched! Google Brand SOV 1.64%, TT Spend 210.57, Meta Spend 97.75, Meta Impressions 389K.",
     
     "hero": {
-        "desc": "Google Product SOV 50% (10/17), Consideration 448K (10/17), TT VV SOV 0.42% (10/17), TT Search SOV 1.05% (10/17). / Google 产品 SOV 50%，Consideration 总量 448K，TT VV SOV 0.42%，TT Search SOV 1.05%。",
+        "desc": "Google Brand SOV 1.64% (10/20), TT Spend 210.57 (10/19), Meta Spend 97.75 (10/19), Meta Impressions 389K (10/19). / Google 品牌 SOV 1.64%，TT 消耗 210.57，Meta 消耗 97.75，Meta 曝光 389K。",
         "stats": [
-            {"label": "Google 产品 SOV / Product SOV", "value": "50%"},
-            {"label": "Consideration 总量 / Total", "value": "448K"},
-            {"label": "TT VV SOV", "value": "0.42%"},
-            {"label": "TT Search SOV", "value": "1.05%"}
+            {"label": "Google Brand SOV", "value": "1.64%"},
+            {"label": "TT 消耗 / TT Spend", "value": "210.57"},
+            {"label": "Meta 消耗 / Meta Spend", "value": "97.75"},
+            {"label": "Meta 曝光 / Meta Impressions", "value": "389K"}
         ]
     },
     
     "kpis": [
-        {"label": "TikTok Video View SOV", "statusDot": "status-red", "value": "0.42%", "trend": "↓", "trendClass": "trend-down", "sub": "Target / 目标 20% · As of / 截至 10/17", "borderLeft": None, "valueColor": None},
-        {"label": "TikTok Search SOV", "statusDot": "status-red", "value": "1.05%", "trend": "↓", "trendClass": "trend-down", "sub": "Target / 目标 13% · As of / 截至 10/17", "borderLeft": None, "valueColor": None},
-        {"label": "Google Brand SOV", "statusDot": "status-red", "value": "1.63%", "trend": "→", "trendClass": "trend-flat", "sub": "As of / 截至 10/19", "borderLeft": "#f472b6", "valueColor": "#f472b6"},
-        {"label": "Google Product SOV", "statusDot": "status-green", "value": "50%", "trend": "↑", "trendClass": "trend-up", "sub": "As of / 截至 10/19", "borderLeft": "#10b981", "valueColor": "#10b981"},
-        {"label": "Consideration", "statusDot": "status-red", "value": "448K", "trend": "↓", "trendClass": "trend-down", "sub": "Industry avg / 行业均值 4.23M · As of / 截至 10/17", "borderLeft": "#a855f7", "valueColor": "#a855f7"},
-        {"label": "互动量 / Engagement", "statusDot": "status-red", "value": "78.6K", "trend": "↓", "trendClass": "trend-down", "sub": "Industry rank / 行业排名 #18 · As of / 截至 10/17", "borderLeft": "#ec4899", "valueColor": "#ec4899"}
+        {"label": "TikTok Video View SOV", "statusDot": "status-red", "value": "0.42%", "trend": "→", "trendClass": "trend-flat", "sub": "Target / 目标 20% · As of / 截至 10/17", "borderLeft": None, "valueColor": None},
+        {"label": "TikTok Search SOV", "statusDot": "status-red", "value": "1.02%", "trend": "→", "trendClass": "trend-flat", "sub": "Target / 目标 13% · As of / 截至 10/17", "borderLeft": None, "valueColor": None},
+        {"label": "Google Brand SOV", "statusDot": "status-green", "value": "1.64%", "trend": "↑", "trendClass": "trend-up", "sub": "As of / 截至 10/20", "borderLeft": "#f472b6", "valueColor": "#f472b6"},
+        {"label": "Google Product SOV", "statusDot": "status-red", "value": "8.82%", "trend": "→", "trendClass": "trend-flat", "sub": "As of / 截至 10/19", "borderLeft": "#ef4444", "valueColor": "#ef4444"},
+        {"label": "TT 消耗 / TT Spend", "statusDot": "status-green", "value": "210.57", "trend": "↑", "trendClass": "trend-up", "sub": "Campaign launched / 投放已启动 · As of / 截至 10/19", "borderLeft": "#10b981", "valueColor": "#10b981"},
+        {"label": "Meta 消耗 / Meta Spend", "statusDot": "status-green", "value": "97.75", "trend": "↑", "trendClass": "trend-up", "sub": "Meta Impressions 389K · As of / 截至 10/19", "borderLeft": "#10b981", "valueColor": "#10b981"}
     ],
     
     "overview": [
-        {"status": "red", "metric": "Google 品牌 SOV / Brand SOV", "current": "1.63%", "target": "—", "date": "10/19"},
-        {"status": "green", "metric": "Google 产品 SOV / Product SOV", "current": "50%", "target": "—", "date": "10/19"},
+        {"status": "green", "metric": "Google 品牌 SOV / Brand SOV", "current": "1.64%", "target": "—", "date": "10/20"},
+        {"status": "red", "metric": "Google 产品 SOV / Product SOV", "current": "8.82%", "target": "—", "date": "10/19"},
         {"status": "red", "metric": "TikTok VV SOV", "current": "0.42%", "target": "20%", "date": "10/17"},
-        {"status": "red", "metric": "TikTok Search SOV", "current": "1.05%", "target": "13%", "date": "10/17"},
+        {"status": "red", "metric": "TikTok Search SOV", "current": "1.02%", "target": "13%", "date": "10/17"},
+        {"status": "green", "metric": "TT 消耗 / TT Spend", "current": "210.57", "target": "—", "date": "10/19"},
+        {"status": "green", "metric": "Meta 消耗 / Meta Spend", "current": "97.75", "target": "—", "date": "10/19"},
+        {"status": "green", "metric": "Meta 曝光 / Meta Impressions", "current": "389K", "target": "—", "date": "10/19"},
         {"status": "red", "metric": "互动量行业排名 / Engagement Rank", "current": "#18", "target": "Top 3", "date": "10/17"},
         {"status": "red", "metric": "Consideration 总量 / Total", "current": "448K", "target": "—", "date": "10/17"}
     ],
@@ -67,38 +43,38 @@ D = {
     "kolVideos": [],
     
     "googleSov": {
-        "labels": ["10/19"],
-        "brand": [1.63],
-        "product": [50],
-        "brandNote": "Brand SOV latest 1.63% (10/19) / 品牌 SOV 最新 1.63%（10/19）",
-        "productNote": "Product SOV latest 50% (10/19) / 产品 SOV 最新 50%（10/19）"
+        "labels": ["10/19", "10/20"],
+        "brand": [1.63, 1.64],
+        "product": [8.82, 8.82],
+        "brandNote": "Brand SOV latest 1.64% (10/20) / 品牌 SOV 最新 1.64%（10/20）",
+        "productNote": "Product SOV latest 8.82% (10/19) / 产品 SOV 最新 8.82%（10/19）"
     },
     
     "competitorCompare": {
-        "note": "Google Trends 对比关键词 / Comparison: CAMON Slim vs OPPO Reno 16 F, VIVO V80 Lite, Redmi Note 17 Pro · 截至 10/19",
+        "note": "Google Trends 对比关键词 / Comparison: CAMON Slim vs OPPO Reno 16 F, VIVO V80 Lite, Redmi Note 17 Pro · 截至 10/20",
         "trendLink": "https://trends.google.com/trends/explore?date=today%201-m&geo=TH&q=CAMON%20Slim,OPPO%20Reno%2016%20F,VIVO%20V80%20Lite,Redmi%20Note%2017%20Pro&hl=en",
         "dailyLinks": [],
-        "chartLabels": ["10/19"],
+        "chartLabels": ["10/19", "10/20"],
         "datasets": [
-            {"label": "CAMON Slim (TECNO)", "data": [50], "borderColor": "#10b981", "bg": "rgba(16,185,129,.15)", "fill": True, "dash": None, "width": 3, "pointRadius": 5},
+            {"label": "CAMON Slim (TECNO)", "data": [8.82, 8.82], "borderColor": "#10b981", "bg": "rgba(16,185,129,.15)", "fill": True, "dash": None, "width": 3, "pointRadius": 5},
             {"label": "OPPO Reno 16 F", "data": [], "borderColor": "#a855f7", "bg": "rgba(168,85,247,.05)", "fill": False, "dash": [4,2], "width": None, "pointRadius": 3},
             {"label": "VIVO V80 Lite", "data": [], "borderColor": "#2563eb", "bg": "rgba(37,99,235,.05)", "fill": False, "dash": [4,2], "width": None, "pointRadius": 3},
             {"label": "Redmi Note 17 Pro", "data": [], "borderColor": "#ea580c", "bg": "rgba(234,88,12,.05)", "fill": False, "dash": [4,2], "width": None, "pointRadius": 3}
         ],
         "table": [
-            {"product": "CAMON Slim", "brand": "TECNO", "brandBold": True, "brandColor": "#10b981", "sov": "50%", "sovColor": "#10b981", "sovBold": True, "sovSize": "16px", "trend": "→", "trendClass": "trend-flat", "highlight": True},
+            {"product": "CAMON Slim", "brand": "TECNO", "brandBold": True, "brandColor": "#10b981", "sov": "8.82%", "sovColor": "#ef4444", "sovBold": True, "sovSize": "16px", "trend": "→", "trendClass": "trend-flat", "highlight": True},
             {"product": "OPPO Reno 16 F", "brand": "OPPO", "brandBold": False, "brandColor": None, "sov": "—", "sovColor": "#6b7280", "sovBold": False, "sovSize": None, "trend": "→", "trendClass": "trend-flat", "highlight": False},
             {"product": "VIVO V80 Lite", "brand": "vivo", "brandBold": False, "brandColor": None, "sov": "—", "sovColor": "#6b7280", "sovBold": False, "sovSize": None, "trend": "→", "trendClass": "trend-flat", "highlight": False},
             {"product": "Redmi Note 17 Pro", "brand": "Xiaomi", "brandBold": False, "brandColor": None, "sov": "—", "sovColor": "#6b7280", "sovBold": False, "sovSize": None, "trend": "→", "trendClass": "trend-flat", "highlight": False}
         ],
-        "insight": "💡 竞品对比组合：CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro。CAMON Slim 产品 SOV 最新 50%（10/19）。竞品数据来自 Google Trends 相对搜索热度，反映搜索声量占比。/ Competitor set: CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro. Product SOV latest 50% (10/19). Competitor data from Google Trends relative search interest."
+        "insight": "💡 竞品对比组合：CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro。CAMON Slim 产品 SOV 最新 8.82%（10/19）。竞品数据来自 Google Trends 相对搜索热度，反映搜索声量占比。/ Competitor set: CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro. Product SOV latest 8.82% (10/19). Competitor data from Google Trends relative search interest."
     },
     
     "ttSov": {
         "labels": ["10/17"],
         "vvData": [0.42],
-        "searchData": [1.05],
-        "note": "VV SOV latest 0.42% (10/17); Search SOV latest 1.05% (10/17) / VV SOV 最新 0.42%（10/17）；Search SOV 最新 1.05%（10/17）"
+        "searchData": [1.02],
+        "note": "VV SOV latest 0.42% (10/17); Search SOV latest 1.02% (10/17) / VV SOV 最新 0.42%（10/17）；Search SOV 最新 1.02%（10/17）"
     },
     
     "consideration": {
@@ -109,9 +85,9 @@ D = {
     },
     
     "spend": {
-        "labels": ["10/17"],
-        "dailySpend": [0],
-        "spendProgress": [0],
+        "labels": ["10/19"],
+        "dailySpend": [308.32],
+        "spendProgress": [0.18],
         "exposureProgress": [0.06]
     },
     
@@ -151,4 +127,7 @@ content = re.sub(pattern, new_d, content)
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(content)
 
-print("Dashboard updated successfully!")
+print("✅ Dashboard updated!")
+print(f"Google Brand SOV: {D['googleSov']['brand'][-1]}%")
+print(f"TT Spend: {D['kpis'][4]['value']}")
+print(f"Meta Spend: {D['kpis'][5]['value']}")
