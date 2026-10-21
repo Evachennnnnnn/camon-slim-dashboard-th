@@ -114,7 +114,9 @@ D = {
         "stats": [],
         "audience": [],
         "materials": [],
-        "insights": []
+        "insights": [],
+        "audienceTable": [],
+        "materialsTable": []
     }
 }
 
