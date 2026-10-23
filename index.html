@@ -291,27 +291,31 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 // DATA CONFIGURATION / 数据配置
 // ============================================================
 const D = {
-  "updatedDate": "2026-10-22",
-  "dataAsOf": "10/22",
-  "alertBanner": "数据已更新至 10/22。Google Brand SOV 2.17%（↑），Meta 曝光 1.62M，TT 累计消耗 $1,100。/ Data updated to 10/22. Google Brand SOV 2.17% (↑), Meta Impressions 1.62M, TT Cumulative Spend $1,100.",
+  "updatedDate": "2026-10-23",
+  "dataAsOf": "10/23",
+  "alertBanner": "数据已更新至 10/23。Google Product SOV 突破 3.33%（🎉），Brand SOV 2.12%，Meta 曝光 2.79M，TT 累计消耗 $2,106。/ Data updated to 10/23. Google Product SOV breaks through 3.33% (🎉), Brand SOV 2.12%, Meta Impressions 2.79M, TT Cumulative Spend $2,106.",
   "hero": {
-    "desc": "Google Brand SOV 2.17% (10/22), Meta Impressions 1.62M (10/21), Consideration 452K (10/18), TT 累计消耗 $1,100. / Google 品牌 SOV 2.17%，Meta 曝光 1.62M，Consideration 452K，TT 累计消耗 $1,100。",
+    "desc": "Google Brand SOV 2.12% (10/23), Product SOV 3.33% (🎉), Meta Impressions 2.79M (10/22), Consideration 480K (10/21), TT 累计消耗 $2,106. / Google 品牌 SOV 2.12%，产品 SOV 3.33%（🎉），Meta 曝光 2.79M，Consideration 480K，TT 累计消耗 $2,106。",
     "stats": [
       {
         "label": "Google Brand SOV",
-        "value": "2.17%"
+        "value": "2.12%"
+      },
+      {
+        "label": "Google Product SOV 🎉",
+        "value": "3.33%"
       },
       {
         "label": "Meta 曝光 / Meta Impressions",
-        "value": "1.62M"
+        "value": "2.79M"
       },
       {
         "label": "Consideration 总量 / Total",
-        "value": "452K"
+        "value": "480K"
       },
       {
         "label": "TT 累计消耗 / TT Cumulative Spend",
-        "value": "$1,100"
+        "value": "$2,106"
       }
     ]
   },
@@ -328,51 +332,51 @@ const D = {
     },
     {
       "label": "TikTok Search SOV",
-      "statusDot": "status-red",
-      "value": "1.11%",
+      "statusDot": "status-yellow",
+      "value": "1.16%",
       "trend": "↑",
       "trendClass": "trend-up",
-      "sub": "Target / 目标 13% · As of / 截至 10/18",
+      "sub": "Target / 目标 13% · As of / 截至 10/19",
       "borderLeft": null,
       "valueColor": null
     },
     {
       "label": "Google Brand SOV",
       "statusDot": "status-green",
-      "value": "2.17%",
-      "trend": "↑",
-      "trendClass": "trend-up",
-      "sub": "As of / 截至 10/22",
+      "value": "2.12%",
+      "trend": "↓",
+      "trendClass": "trend-down",
+      "sub": "As of / 截至 10/23",
       "borderLeft": "#10b981",
       "valueColor": "#10b981"
     },
     {
-      "label": "Google Product SOV",
-      "statusDot": "status-red",
-      "value": "0%",
-      "trend": "→",
-      "trendClass": "trend-flat",
-      "sub": "As of / 截至 10/22 · 预热阶段",
-      "borderLeft": "#ef4444",
-      "valueColor": "#ef4444"
+      "label": "Google Product SOV 🎉",
+      "statusDot": "status-green",
+      "value": "3.33%",
+      "trend": "↑",
+      "trendClass": "trend-up",
+      "sub": "As of / 截至 10/23 · 突破！",
+      "borderLeft": "#10b981",
+      "valueColor": "#10b981"
     },
     {
       "label": "Meta 曝光 / Meta Impressions",
       "statusDot": "status-green",
-      "value": "1.62M",
+      "value": "2.79M",
       "trend": "↑",
       "trendClass": "trend-up",
-      "sub": "Meta Spend $452 (10/21) · As of / 截至 10/21",
+      "sub": "Meta Spend $826 (10/22) · As of / 截至 10/22",
       "borderLeft": "#10b981",
       "valueColor": "#10b981"
     },
     {
       "label": "TT 累计消耗 / TT Cumulative Spend",
       "statusDot": "status-green",
-      "value": "$1,100",
+      "value": "$2,106",
       "trend": "↑",
       "trendClass": "trend-up",
-      "sub": "预算进度 0.94% · As of / 截至 10/21",
+      "sub": "预算进度 1.80% · As of / 截至 10/22",
       "borderLeft": "#10b981",
       "valueColor": "#10b981"
     }
@@ -381,16 +385,16 @@ const D = {
     {
       "status": "green",
       "metric": "Google 品牌 SOV / Brand SOV",
-      "current": "2.17%",
+      "current": "2.12%",
       "target": "—",
-      "date": "10/22"
+      "date": "10/23"
     },
     {
-      "status": "red",
-      "metric": "Google 产品 SOV / Product SOV",
-      "current": "0%",
+      "status": "green",
+      "metric": "Google 产品 SOV / Product SOV 🎉",
+      "current": "3.33%",
       "target": "—",
-      "date": "10/22"
+      "date": "10/23"
     },
     {
       "status": "red",
@@ -402,30 +406,30 @@ const D = {
     {
       "status": "red",
       "metric": "TikTok Search SOV",
-      "current": "1.11%",
+      "current": "1.16%",
       "target": "13%",
-      "date": "10/18"
+      "date": "10/19"
     },
     {
       "status": "green",
       "metric": "Meta 曝光 / Meta Impressions",
-      "current": "1.62M",
+      "current": "2.79M",
       "target": "—",
-      "date": "10/21"
+      "date": "10/22"
     },
     {
       "status": "green",
       "metric": "Meta 消耗 / Meta Spend",
-      "current": "452.02",
+      "current": "825.58",
       "target": "—",
-      "date": "10/21"
+      "date": "10/22"
     },
     {
-      "status": "red",
+      "status": "green",
       "metric": "Consideration 总量 / Total",
-      "current": "452K",
+      "current": "480K",
       "target": "—",
-      "date": "10/18"
+      "date": "10/21"
     },
     {
       "status": "red",
@@ -437,9 +441,9 @@ const D = {
     {
       "status": "green",
       "metric": "TT 累计消耗 / TT Cumulative Spend",
-      "current": "$1,100",
+      "current": "$2,106",
       "target": "—",
-      "date": "10/21"
+      "date": "10/22"
     }
   ],
   "topVideos": [],
@@ -449,32 +453,36 @@ const D = {
       "10/19",
       "10/20",
       "10/21",
-      "10/22"
+      "10/22",
+      "10/23"
     ],
     "brand": [
       1.63,
       1.64,
       1.64,
-      2.17
+      2.17,
+      2.12
     ],
     "product": [
       0,
       0,
       0,
-      0
+      0,
+      3.33
     ],
-    "brandNote": "Brand SOV latest 2.17% (10/22) / 品牌 SOV 最新 2.17%（10/22）",
-    "productNote": "Product SOV latest 0% (10/22) / 产品 SOV 最新 0%（10/22）· 预热阶段"
+    "brandNote": "Brand SOV latest 2.12% (10/23) / 品牌 SOV 最新 2.12%（10/23）",
+    "productNote": "Product SOV latest 3.33% (10/23) / 产品 SOV 最新 3.33%（10/23）🎉 突破！"
   },
   "competitorCompare": {
-    "note": "Google Trends 对比关键词 / Comparison: CAMON Slim vs OPPO Reno 16 F, VIVO V80 Lite, Redmi Note 17 Pro · 截至 10/22",
+    "note": "Google Trends 对比关键词 / Comparison: CAMON Slim vs OPPO Reno 16 F, VIVO V80 Lite, Redmi Note 17 Pro · 截至 10/23",
     "trendLink": "https://trends.google.com/trends/explore?date=today%201-m&geo=TH&q=CAMON%20Slim,OPPO%20Reno%2016%20F,VIVO%20V80%20Lite,Redmi%20Note%2017%20Pro&hl=en",
     "dailyLinks": [],
     "chartLabels": [
       "10/19",
       "10/20",
       "10/21",
-      "10/22"
+      "10/22",
+      "10/23"
     ],
     "datasets": [
       {
@@ -483,7 +491,8 @@ const D = {
           0,
           0,
           0,
-          0
+          0,
+          3.33
         ],
         "borderColor": "#10b981",
         "bg": "rgba(16,185,129,.15)",
@@ -538,12 +547,12 @@ const D = {
         "brand": "TECNO",
         "brandBold": true,
         "brandColor": "#10b981",
-        "sov": "0%",
-        "sovColor": "#ef4444",
+        "sov": "3.33%",
+        "sovColor": "#10b981",
         "sovBold": true,
         "sovSize": "16px",
-        "trend": "→",
-        "trendClass": "trend-flat",
+        "trend": "↑",
+        "trendClass": "trend-up",
         "highlight": true
       },
       {
@@ -586,7 +595,7 @@ const D = {
         "highlight": false
       }
     ],
-    "insight": "💡 竞品对比组合：CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro。CAMON Slim 产品 SOV 为 0%（预热阶段），待产品正式上线后开始起量。/ Competitor set: CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro. Product SOV at 0% (warm-up phase), will ramp up after official product launch."
+    "insight": "💡 竞品对比组合：CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro。CAMON Slim 产品 SOV 突破 3.33%（10/23），产品搜索热度开始起量！/ Competitor set: CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro. Product SOV breaks through 3.33% (10/23), product search interest is ramping up! 🎉"
   },
   "ttSov": {
     "labels": [
@@ -594,10 +603,12 @@ const D = {
       "10/18",
       "10/19",
       "10/20",
-      "10/21"
+      "10/21",
+      "10/22"
     ],
     "vvData": [
       0.42,
+      0.51,
       null,
       null,
       null,
@@ -606,64 +617,82 @@ const D = {
     "searchData": [
       1.02,
       1.11,
+      1.16,
       null,
       null,
       null
     ],
-    "note": "VV SOV latest 0.42% (10/17, 10/18-21 exposure data pending); Search SOV latest 1.11% (10/18) / VV SOV 最新 0.42%（10/17，10/18-21曝光数据待补录）；Search SOV 最新 1.11%（10/18）"
+    "note": "VV SOV latest 0.51% (10/18); Search SOV latest 1.16% (10/19) / VV SOV 最新 0.51%（10/18）；Search SOV 最新 1.16%（10/19）"
   },
   "consideration": {
     "labels": [
       "10/17",
-      "10/18"
+      "10/18",
+      "10/19",
+      "10/20",
+      "10/21"
     ],
     "brandData": [
       448555,
-      451538
+      451538,
+      447633,
+      461303,
+      479579
     ],
     "industryData": [
       4225531,
-      4219704
+      4219704,
+      4210648,
+      4215592,
+      4222316
     ],
-    "note": "Brand Consideration latest 452K (10/18). / 本品牌 Consideration 最新 452K（10/18）。"
+    "note": "Brand Consideration latest 480K (10/21). / 本品牌 Consideration 最新 480K（10/21）。"
   },
   "spend": {
     "labels": [
       "10/19",
       "10/20",
-      "10/21"
+      "10/21",
+      "10/22"
     ],
     "dailySpend": [
       308.32,
       780.03,
-      918.21
+      918.21,
+      1831.05
     ],
     "spendProgress": [
       0.18,
       0.54,
-      0.94
+      0.94,
+      1.80
     ],
     "exposureProgress": [
       0.06,
       0.06,
-      0.06
+      0.06,
+      0.13
     ],
     "metaSpend": [
       97.75,
       356.71,
-      452.02
+      452.02,
+      825.58
     ],
     "metaImpressions": [
       389920,
       1324958,
-      1615904
+      1615904,
+      2791710
     ],
     "ttSpend": [
       210.57,
       423.32,
-      466.19
+      466.19,
+      1005.47
     ],
     "ytSpend": [
+      0,
       0,
       0,
       0
