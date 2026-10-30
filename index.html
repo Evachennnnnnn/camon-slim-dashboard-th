@@ -291,15 +291,15 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 // DATA CONFIGURATION / 数据配置
 // ============================================================
 const D = {
-  "updatedDate": "2026-10-29",
-  "dataAsOf": "10/29",
-  "alertBanner": "数据已更新至 10/29。Google Product SOV 6.76% 🚀，TT VV SOV 3.24%，全网总曝光 44.77M，Consideration 544K。/ Data updated to 10/29. Google Product SOV 6.76% 🚀, TT VV SOV 3.24%, Total Impressions 44.77M, Consideration 544K.",
+  "updatedDate": "2026-10-30",
+  "dataAsOf": "10/30",
+  "alertBanner": "数据已更新至 10/30。Google Product SOV 8.20% 🚀，TT VV SOV 3.24%，全网总曝光 48.88M，Consideration 591K。/ Data updated to 10/30. Google Product SOV 8.20% 🚀, TT VV SOV 3.24%, Total Impressions 48.88M, Consideration 591K.",
   "hero": {
-    "desc": "Google Product SOV 6.76% (10/29), TT VV SOV 3.24% (10/23), 全网总曝光 44.77M, Consideration 544K (10/26). / Google 产品 SOV 6.76%，TT VV SOV 3.24%，全网总曝光 44.77M，Consideration 544K。",
+    "desc": "Google Product SOV 8.20% (10/30), TT VV SOV 3.24% (10/23), 全网总曝光 48.88M, Consideration 591K (10/28). / Google 产品 SOV 8.20%，TT VV SOV 3.24%，全网总曝光 48.88M，Consideration 591K。",
     "stats": [
       {
         "label": "Google Product SOV",
-        "value": "6.76%"
+        "value": "8.20%"
       },
       {
         "label": "TT VV SOV",
@@ -307,11 +307,11 @@ const D = {
       },
       {
         "label": "全网总曝光 / Total Impressions",
-        "value": "44.77M"
+        "value": "48.88M"
       },
       {
         "label": "Consideration 总量 / Total",
-        "value": "544K"
+        "value": "591K"
       }
     ]
   },
@@ -320,8 +320,8 @@ const D = {
       "label": "TikTok Video View SOV",
       "statusDot": "status-yellow",
       "value": "3.24%",
-      "trend": "↑",
-      "trendClass": "trend-up",
+      "trend": "↓",
+      "trendClass": "trend-down",
       "sub": "Target / 目标 20% · As of / 截至 10/23",
       "borderLeft": null,
       "valueColor": null
@@ -339,30 +339,40 @@ const D = {
     {
       "label": "Google Brand SOV",
       "statusDot": "status-green",
-      "value": "2.15%",
-      "trend": "↑",
-      "trendClass": "trend-up",
-      "sub": "As of / 截至 10/29",
-      "borderLeft": "#f472b6",
-      "valueColor": "#f472b6"
-    },
-    {
-      "label": "Google Product SOV",
-      "statusDot": "status-green",
-      "value": "6.76%",
-      "trend": "↑",
-      "trendClass": "trend-up",
-      "sub": "As of / 截至 10/29 · 峰值 6.76% (10/29)",
+      "value": "2.14%",
+      "trend": "↓",
+      "trendClass": "trend-down",
+      "sub": "As of / 截至 10/30",
       "borderLeft": "#10b981",
       "valueColor": "#10b981"
     },
     {
-      "label": "全网总曝光 / Total Impressions",
+      "label": "Google Product SOV",
       "statusDot": "status-green",
-      "value": "44.77M",
+      "value": "8.20%",
       "trend": "↑",
       "trendClass": "trend-up",
-      "sub": "Meta 28.71M + TT 14.54M + YT 1.52M · As of / 截至 10/28",
+      "sub": "As of / 截至 10/30",
+      "borderLeft": "#10b981",
+      "valueColor": "#10b981"
+    },
+    {
+      "label": "TT 消耗 / TT Spend",
+      "statusDot": "status-green",
+      "value": "3,060.28",
+      "trend": "↑",
+      "trendClass": "trend-up",
+      "sub": "As of / 截至 10/29",
+      "borderLeft": "#10b981",
+      "valueColor": "#10b981"
+    },
+    {
+      "label": "Meta 消耗 / Meta Spend",
+      "statusDot": "status-green",
+      "value": "1,345.65",
+      "trend": "↑",
+      "trendClass": "trend-up",
+      "sub": "Meta Impressions 4.33M · As of / 截至 10/29",
       "borderLeft": "#10b981",
       "valueColor": "#10b981"
     }
@@ -371,80 +381,103 @@ const D = {
     {
       "status": "green",
       "metric": "Google 品牌 SOV / Brand SOV",
-      "current": "2.15%",
+      "current": "2.14%",
       "target": "—",
-      "date": "10/29"
+      "date": "10/30"
     },
     {
       "status": "green",
       "metric": "Google 产品 SOV / Product SOV",
-      "current": "6.76%",
+      "current": "8.20%",
       "target": "—",
-      "date": "10/29"
+      "date": "10/30"
     },
     {
-      "status": "yellow",
+      "status": "red",
       "metric": "TikTok VV SOV",
       "current": "3.24%",
       "target": "20%",
-      "date": "10/26"
+      "date": "10/23"
     },
     {
       "status": "red",
       "metric": "TikTok Search SOV",
-      "current": "1.01%",
+      "current": "1.00%",
       "target": "13%",
-      "date": "10/26"
+      "date": "10/23"
     },
     {
       "status": "green",
-      "metric": "全网总曝光 / Total Impressions",
-      "current": "44.77M",
+      "metric": "TT 消耗 / TT Spend",
+      "current": "3,060.28",
       "target": "—",
-      "date": "10/28"
+      "date": "10/29"
+    },
+    {
+      "status": "green",
+      "metric": "Meta 消耗 / Meta Spend",
+      "current": "1,345.65",
+      "target": "—",
+      "date": "10/29"
+    },
+    {
+      "status": "green",
+      "metric": "Meta 曝光 / Meta Impressions",
+      "current": "4.33M",
+      "target": "—",
+      "date": "10/29"
+    },
+    {
+      "status": "green",
+      "metric": "YouTube 消耗 / YT Spend",
+      "current": "727.83",
+      "target": "—",
+      "date": "10/29"
+    },
+    {
+      "status": "green",
+      "metric": "YouTube 曝光 / YT Impressions",
+      "current": "1.76M",
+      "target": "—",
+      "date": "10/29"
     },
     {
       "status": "green",
       "metric": "Consideration 总量 / Total",
-      "current": "494K",
+      "current": "591K",
       "target": "—",
-      "date": "10/26"
+      "date": "10/28"
     }
   ],
   "topVideos": [
     {
-      "rank": "🥇",
       "name": "TEASER | MagBadge",
-      "value": "3.4M",
       "url": "https://www.tiktok.com/@tecnomobileth/video/7698214795140435218",
+      "value": "3.4M",
       "gold": true
     },
     {
-      "rank": "🥈",
       "name": "TEASER | See you soon",
-      "value": "3.3M",
       "url": "https://www.tiktok.com/@tecnomobileth/video/7696848773137321223",
+      "value": "3.3M",
       "gold": false
     },
     {
-      "rank": "🥉",
       "name": "TEASER | Guess Team Black",
-      "value": "3.1M",
       "url": "https://www.tiktok.com/@tecnomobileth/video/7698966457778048277",
+      "value": "3.1M",
       "gold": false
     },
     {
-      "rank": "4",
       "name": "TEASER | Guess Rebel 4",
-      "value": "2.9M",
       "url": "https://www.tiktok.com/@tecnomobileth/video/7699005838748552469",
+      "value": "2.9M",
       "gold": false
     },
     {
-      "rank": "5",
       "name": "BA UNVEIL | REBEL 4",
-      "value": "2.5M",
       "url": "https://www.tiktok.com/@tecnomobileth/video/7699103279812185352",
+      "value": "2.5M",
       "gold": false
     }
   ],
@@ -461,7 +494,8 @@ const D = {
       "10/26",
       "10/27",
       "10/28",
-      "10/29"
+      "10/29",
+      "10/30"
     ],
     "brand": [
       1.63,
@@ -474,7 +508,8 @@ const D = {
       2.13,
       2.15,
       2.12,
-      2.15
+      2.15,
+      2.14
     ],
     "product": [
       0,
@@ -487,13 +522,14 @@ const D = {
       1.43,
       4.17,
       3.75,
-      6.76
+      6.76,
+      8.2
     ],
-    "brandNote": "Brand SOV latest 2.15% (10/29) / 品牌 SOV 最新 2.15%（10/29）",
-    "productNote": "Product SOV latest 6.76% (10/29) 🚀 / 产品 SOV 最新 6.76%（10/29）"
+    "brandNote": "Brand SOV latest 2.14% (10/30) / 品牌 SOV 最新 2.14%（10/30）",
+    "productNote": "Product SOV latest 8.20% (10/30) / 产品 SOV 最新 8.20%（10/30）"
   },
   "competitorCompare": {
-    "note": "Google Trends 对比关键词 / Comparison: CAMON Slim vs OPPO Reno 16 F, VIVO V80 Lite, Redmi Note 17 Pro · 截至 10/29",
+    "note": "Google Trends 对比关键词 / Comparison: CAMON Slim vs OPPO Reno 16 F, VIVO V80 Lite, Redmi Note 17 Pro · 截至 10/30",
     "trendLink": "https://trends.google.com/trends/explore?date=today%201-m&geo=TH&q=CAMON%20Slim,OPPO%20Reno%2016%20F,VIVO%20V80%20Lite,Redmi%20Note%2017%20Pro&hl=en",
     "dailyLinks": [],
     "chartLabels": [
@@ -507,7 +543,8 @@ const D = {
       "10/26",
       "10/27",
       "10/28",
-      "10/29"
+      "10/29",
+      "10/30"
     ],
     "datasets": [
       {
@@ -523,7 +560,8 @@ const D = {
           1.43,
           4.17,
           3.75,
-          6.76
+          6.76,
+          8.2
         ],
         "borderColor": "#10b981",
         "bg": "rgba(16,185,129,.15)",
@@ -578,7 +616,7 @@ const D = {
         "brand": "TECNO",
         "brandBold": true,
         "brandColor": "#10b981",
-        "sov": "6.76%",
+        "sov": "8.20%",
         "sovColor": "#10b981",
         "sovBold": true,
         "sovSize": "16px",
@@ -626,7 +664,7 @@ const D = {
         "highlight": false
       }
     ],
-    "insight": "💡 CAMON Slim 产品 SOV 创新高 6.76%（10/29）！YouTube 投放加速（$563，1.45M 曝光）。竞品数据来自 Google Trends 相对搜索热度。/ Product SOV hit new high 6.76% (10/29)! YouTube campaign accelerating ($563, 1.45M impressions)."
+    "insight": "💡 竞品对比组合：CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro。CAMON Slim 产品 SOV 最新 8.20%（10/30）。竞品数据来自 Google Trends 相对搜索热度，反映搜索声量占比。/ Competitor set: CAMON Slim vs OPPO Reno 16 F / VIVO V80 Lite / Redmi Note 17 Pro. Product SOV latest 8.20% (10/30). Competitor data from Google Trends relative search interest."
   },
   "ttSov": {
     "labels": [
@@ -654,9 +692,9 @@ const D = {
       1.06,
       0.96,
       1.01,
-      null
+      1.0
     ],
-    "note": "VV SOV latest 3.24% (10/23); Search SOV latest 1.01% (10/22) / VV SOV 最新 3.24%（10/23）；Search SOV 最新 1.01%（10/22）"
+    "note": "VV SOV latest 3.24% (10/23); Search SOV latest 1.00% (10/23) / VV SOV 最新 3.24%（10/23）；Search SOV 最新 1.00%（10/23）"
   },
   "consideration": {
     "labels": [
@@ -669,7 +707,9 @@ const D = {
       "10/23",
       "10/24",
       "10/25",
-      "10/26"
+      "10/26",
+      "10/27",
+      "10/28"
     ],
     "brandData": [
       448555,
@@ -681,7 +721,9 @@ const D = {
       507558,
       518639,
       529399,
-      543671
+      543671,
+      570714,
+      591281
     ],
     "industryData": [
       4225531,
@@ -693,185 +735,78 @@ const D = {
       4237151,
       4262897,
       4279313,
-      4277526
+      4277526,
+      4350530,
+      4353752
     ],
-    "note": "Brand Consideration latest 544K (10/26). / 本品牌 Consideration 最新 544K（10/26）。"
+    "note": "Brand Consideration latest 591K (10/28). / 本品牌 Consideration 最新 591K（10/28）。"
   },
   "spend": {
     "labels": [
+      "10/17",
+      "10/18",
       "10/19",
       "10/20",
       "10/21",
       "10/22",
       "10/23",
       "10/24",
-      "10/25"
+      "10/25",
+      "10/26",
+      "10/27",
+      "10/28",
+      "10/29"
     ],
     "dailySpend": [
+      0,
+      0,
       96.36,
       423.32,
       466.19,
       1005.47,
       1071.55,
       1350.02,
-      1405.59
+      1405.59,
+      1050.79,
+      1820.94,
+      2830.39,
+      3060.28
     ],
     "spendProgress": [
+      0,
+      0,
       0.0006,
-      0.003,
-      0.006,
-      0.012,
-      0.018,
-      0.026,
-      0.035
+      0.0031,
+      0.0059,
+      0.0119,
+      0.0183,
+      0.0264,
+      0.0348,
+      0.0411,
+      0.052,
+      0.069,
+      0.0873
     ],
     "exposureProgress": [
-      0.003,
-      0.006,
+      0.0006,
+      0.0013,
+      0.0028,
+      0.0057,
       0.009,
-      0.015,
-      0.021,
-      0.021,
-      0.021
+      0.0149,
+      0.0208,
+      0.0208,
+      0.0208,
+      0.0208,
+      0.0208,
+      0.0208,
+      0.0208
     ]
   },
   "audience": {
-    "platformMetrics": [
-      {
-        "platform": "TikTok",
-        "cost": "$5,818.50",
-        "cpm": "$0.31",
-        "cpv": "$0.0003",
-        "vtr": "98.8%",
-        "cpe": "$0.145",
-        "er": "0.2%",
-        "ctr": "0%",
-        "cpco": "$0.08",
-        "bg": "rgba(236,72,153,.12)",
-        "border": "rgba(236,72,153,.3)",
-        "color": "#ec4899",
-        "label": "TikTok CPM",
-        "value": "$0.31"
-      },
-      {
-        "platform": "Meta",
-        "cost": "$4,920.84",
-        "cpm": "$0.30",
-        "cpv": "$0.0117",
-        "vtr": "2.6%",
-        "cpe": "$0.012",
-        "er": "1.2%",
-        "ctr": "0%",
-        "cpco": "-",
-        "bg": "rgba(59,130,246,.12)",
-        "border": "rgba(59,130,246,.3)",
-        "color": "#3b82f6",
-        "label": "Meta CPM",
-        "value": "$0.30"
-      }
-    ],
-    "ttAudience": [
-      {
-        "name": "Social & Lifestyle",
-        "cost": "$3,631.12",
-        "cpm": "$0.31",
-        "cpe": "$0.09",
-        "vtr": "-"
-      },
-      {
-        "name": "Rational Buyer",
-        "cost": "$628.12",
-        "cpm": "$0.32",
-        "cpe": "$0.06",
-        "vtr": "-"
-      },
-      {
-        "name": "RMKT & Lookalike",
-        "cost": "$572.78",
-        "cpm": "$0.32",
-        "cpe": "$0.07",
-        "vtr": "-"
-      },
-      {
-        "name": "Tech Upgrade",
-        "cost": "$351.72",
-        "cpm": "$0.30",
-        "cpe": "$0.08",
-        "vtr": "-"
-      },
-      {
-        "name": "Side Hustle",
-        "cost": "$287.70",
-        "cpm": "$0.30",
-        "cpe": "$0.08",
-        "vtr": "-"
-      },
-      {
-        "name": "Urban Social Upgraders",
-        "cost": "$219.65",
-        "cpm": "$0.30",
-        "cpe": "$0.06",
-        "vtr": "-"
-      },
-      {
-        "name": "Competitor",
-        "cost": "$127.41",
-        "cpm": "$0.32",
-        "cpe": "$0.06",
-        "vtr": "-"
-      }
-    ],
-    "fbigAudience": [
-      {
-        "name": "Tech Upgrade",
-        "cost": "$1,161.40",
-        "cpm": "$0.30",
-        "cpe": "-",
-        "vtr": "-"
-      },
-      {
-        "name": "Social & Lifestyle",
-        "cost": "$811.26",
-        "cpm": "$0.30",
-        "cpe": "-",
-        "vtr": "-"
-      },
-      {
-        "name": "Rational Buyer",
-        "cost": "$746.29",
-        "cpm": "$0.31",
-        "cpe": "-",
-        "vtr": "-"
-      },
-      {
-        "name": "Competitor",
-        "cost": "$739.63",
-        "cpm": "$0.29",
-        "cpe": "-",
-        "vtr": "-"
-      },
-      {
-        "name": "Side Hustle",
-        "cost": "$736.07",
-        "cpm": "$0.30",
-        "cpe": "-",
-        "vtr": "-"
-      },
-      {
-        "name": "RMKT & Lookalike",
-        "cost": "$546.82",
-        "cpm": "$0.29",
-        "cpe": "-",
-        "vtr": "-"
-      },
-      {
-        "name": "Urban Social Upgraders",
-        "cost": "$179.37",
-        "cpm": "$0.30",
-        "cpe": "-",
-        "vtr": "-"
-      }
-    ]
+    "platformMetrics": [],
+    "ttAudience": [],
+    "fbigAudience": []
   },
   "keywords": {
     "window": "Data window / 时间窗: 待更新 · Brand / 品牌: Tecno · Source: TikTok Keyword Analysis",
@@ -881,10 +816,10 @@ const D = {
     "insights": []
   },
   "paidComments": {
-    "window": "Data window / 时间窗: 待更新 · Source: TikTok Paid Comment export",
+    "window": "Data window / 时间窗: 10/19-10/25 · Source: TikTok Paid Comment export",
     "stats": [],
-    "audienceTable": [],
-    "materialsTable": [],
+    "audience": [],
+    "materials": [],
     "insights": []
   }
 };
