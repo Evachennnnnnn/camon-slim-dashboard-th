@@ -24,7 +24,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 .kpi .value { font-size:30px; font-weight:900; line-height:1.05; color:#ffffff; display:flex; align-items:center; gap:8px; }
 .kpi .sub { font-size:12px; margin-top:8px; color:#9ca3af; }
 .trend-arrow { font-size:14px; font-weight:700; }
-.trend-up { color:#059669; }
+.trend-up { color:#34d399; }
 .trend-down { color:#dc2626; }
 .trend-flat { color:#64748b; }
 .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
@@ -160,7 +160,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 
   <!-- 4. 高曝光视频排行榜 / Top Video Leaderboard -->
   <div class="section">
-    <h2><span class="badge" style="background:#fef3c7;color:#92400e;">🏆</span>高曝光视频排行榜 / Top Video Leaderboard</h2>
+    <h2><span class="badge" style="background:#fef3c7;color:#fbbf24;">🏆</span>高曝光视频排行榜 / Top Video Leaderboard</h2>
     <div class="leaderboard" id="topVideosContainer"></div>
     <div class="note">Source: 曝光核心贡献榜（周更）/ Top Exposure Contributors (Weekly)</div>
   </div>
@@ -187,7 +187,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     </div>
     <!-- Competitor Comparison / 竞品对比 -->
     <div class="competitor-compare" style="margin-top:18px;">
-      <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;">📊 产品 SOV 竞品对比 / Product SOV vs Competitors</h3>
+      <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">📊 产品 SOV 竞品对比 / Product SOV vs Competitors</h3>
       <div class="note" id="competitorCompareNote" style="margin-bottom:10px;"></div>
       <div class="chart" style="height:220px;margin-bottom:12px;"><canvas id="productSovCompareChart"></canvas></div>
       <div style="background:linear-gradient(135deg,#f0f4ff,#e8edf5);border-radius:16px;padding:24px;text-align:center;border:1px solid #c7d2fe;">
@@ -223,11 +223,11 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
     <h2><span class="badge">受众洞察 / Audience Insights</span></h2>
     
     <div style="margin-bottom:16px;">
-      <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;"> 平台表现对比 / Platform Performance</h3>
+      <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;"> 平台表现对比 / Platform Performance</h3>
       <div id="platformMetrics" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;"></div>
     </div>
     <div>
-      <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;">🎯 TikTok CPM 分人群 / By Audience</h3>
+      <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">🎯 TikTok CPM 分人群 / By Audience</h3>
       <table class="table">
         <thead>
           <tr><th>Audience / 人群</th><th>Cost ($)</th><th>CPM ($)</th><th>CPE ($)</th><th>VTR</th></tr>
@@ -236,7 +236,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
       </table>
     </div>
     <div style="margin-top:16px;">
-      <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;"> FB&IG CPM 分人群 / By Audience</h3>
+      <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;"> FB&IG CPM 分人群 / By Audience</h3>
       <table class="table">
         <thead>
           <tr><th>Audience / 人群</th><th>Cost ($)</th><th>CPM ($)</th><th>CPE ($)</th><th>VTR</th></tr>
@@ -250,14 +250,14 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 
   <!-- 11. Keyword Analysis -->
   <div class="section" style="border-left:4px solid #7c3aed;">
-    <h2><span class="badge" style="background:#ede9fe;color:#6d28d9;">🔍</span>关键词分析 / Keyword Analysis</h2>
+    <h2><span class="badge" style="background:#ede9fe;color:#a78bfa;">🔍</span>关键词分析 / Keyword Analysis</h2>
     <div class="note" id="keywordWindow" style="margin-bottom:14px;"></div>
 
     <div id="keywordStats" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:18px;"></div>
 
     <div id="keywordBreakdown" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:18px;"></div>
 
-    <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;">🏆 TOP 10 高曝光视频 / Top 10 Videos by Impressions</h3>
+    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">🏆 TOP 10 高曝光视频 / Top 10 Videos by Impressions</h3>
     <div class="leaderboard" id="keywordTopVideos" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));"></div>
 
     <div id="keywordInsights" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:18px;"></div>
@@ -265,18 +265,18 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
   </div>
   <!-- 12. Paid Comment Insights -->
   <div class="section" style="border-left:4px solid #ec4899;">
-    <h2><span class="badge" style="background:#fce7f3;color:#be185d;">💬</span>Paid Comment 评论洞察 / Paid Comment Insights</h2>
+    <h2><span class="badge" style="background:#fce7f3;color:#f472b6;">💬</span>Paid Comment 评论洞察 / Paid Comment Insights</h2>
     <div class="note" id="paidCommentWindow" style="margin-bottom:14px;"></div>
 
     <div id="paidCommentStats" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px;"></div>
 
-    <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;">🎯 受众分布 / Audience Breakdown</h3>
+    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">🎯 受众分布 / Audience Breakdown</h3>
     <table class="table" style="margin-bottom:18px;">
       <thead><tr><th>Audience / 受众</th><th>Comments / 评论数</th><th>Likes / 点赞</th><th>Avg Likes / 均赞</th></tr></thead>
       <tbody id="paidCommentAudienceTbody"></tbody>
     </table>
 
-    <h3 style="margin:0 0 12px;font-size:15px;color:#0f172a;">📹 素材评论排行 / Top Materials by Comments</h3>
+    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">📹 素材评论排行 / Top Materials by Comments</h3>
     <table class="table" style="margin-bottom:18px;">
       <thead><tr><th>Material / 素材</th><th>Comments / 评论</th><th>Likes / 点赞</th></tr></thead>
       <tbody id="paidCommentMaterialsTbody"></tbody>
@@ -1385,13 +1385,13 @@ function render() {
     return '<div class="' + cls + '"><div class="leaderboard-rank">' + v.rank + '</div>' +
       '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank">' + v.name + '</a></div>' +
       '<div class="leaderboard-value">' + v.value + '</div>' +
-      '<div style="font-size:11px;color:#475569;margin-top:4px;">' + v.extra + '</div></div>';
+      '<div style="font-size:11px;color:#94a3b8;margin-top:4px;">' + v.extra + '</div></div>';
   }).join('');
 
   document.getElementById('keywordInsights').innerHTML = D.keywords.insights.map(ins =>
     '<div style="background:linear-gradient(135deg,' + ins.bg + ',' + ins.bg.replace('.08', '.03') + ');border:1px solid ' + ins.border + ';border-radius:14px;padding:16px;">' +
     '<div style="font-size:13px;font-weight:800;color:' + ins.titleColor + ';margin-bottom:8px;">' + ins.title + '</div>' +
-    '<ul style="margin:0;padding-left:18px;font-size:12px;color:#334155;line-height:1.8;">' +
+    '<ul style="margin:0;padding-left:18px;font-size:12px;color:#cbd5e1;line-height:1.8;">' +
     ins.items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>'
   ).join('');
 
@@ -1406,19 +1406,19 @@ function render() {
   ).join('');
 
   document.getElementById('paidCommentAudienceTbody').innerHTML = D.paidComments.audienceTable.map(r => {
-    const avgStyle = r.avgHighlight ? ' style="color:#059669;font-weight:700;"' : '';
+    const avgStyle = r.avgHighlight ? ' style="color:#34d399;font-weight:700;"' : '';
     return '<tr><td>' + r.name + '</td><td>' + r.comments + '</td><td>' + r.likes + '</td><td' + avgStyle + '>' + r.avgLikes + '</td></tr>';
   }).join('');
 
   document.getElementById('paidCommentMaterialsTbody').innerHTML = D.paidComments.materialsTable.map(r => {
-    const likesStyle = r.likesHighlight ? ' style="color:#059669;font-weight:700;"' : '';
+    const likesStyle = r.likesHighlight ? ' style="color:#34d399;font-weight:700;"' : '';
     return '<tr><td>' + r.material + '</td><td>' + r.comments + '</td><td' + likesStyle + '>' + r.likes + '</td></tr>';
   }).join('');
 
   document.getElementById('paidCommentInsights').innerHTML = D.paidComments.insights.map(ins =>
     '<div style="background:linear-gradient(135deg,' + ins.bg + ',' + ins.bg.replace('.08', '.03') + ');border:1px solid ' + ins.border + ';border-radius:14px;padding:16px;">' +
     '<div style="font-size:13px;font-weight:800;color:' + ins.titleColor + ';margin-bottom:8px;">' + ins.title + '</div>' +
-    '<ul style="margin:0;padding-left:18px;font-size:12px;color:#334155;line-height:1.8;">' +
+    '<ul style="margin:0;padding-left:18px;font-size:12px;color:#cbd5e1;line-height:1.8;">' +
     ins.items.map(i => '<li>' + i + '</li>').join('') + '</ul></div>'
   ).join('');
 
