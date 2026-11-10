@@ -146,6 +146,20 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
   <!-- 2. KPI小卡 / KPI Cards -->
   <div class="grid kpis" id="kpiGrid"></div>
 
+  <!-- 2.5 挑战赛专区 / Challenge Zone -->
+  <div class="section" style="border-left:4px solid #f59e0b;">
+    <h2><span class="badge" style="background:#fef3c7;color:#f59e0b;">🔥</span>挑战赛专区 / Challenge Zone</h2>
+    <div class="note" style="margin-bottom:14px;">CAMON Slim 5G 挑战赛 vs POVA 8 挑战赛 Benchmark · 数据源：飞书「挑战赛参与情况」</div>
+    <div id="challengeStats" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:18px;"></div>
+    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">📊 CAMON Slim vs POVA 8 Benchmark</h3>
+    <table class="table" style="margin-bottom:14px;">
+      <thead><tr><th>指标 / Metric</th><th>CAMON Slim（3天）</th><th>POVA 8（14天）</th><th>对比 / Compare</th></tr></thead>
+      <tbody id="challengeCompareTbody"></tbody>
+    </table>
+    <div id="challengeInsights" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;"></div>
+    <div class="note" style="margin-top:12px;">⚠️ 注意：CAMON Slim 仅 3 天数据 vs POVA 8 已 14 天，日均数据 CAMON Slim 远超 Benchmark</div>
+  </div>
+
   <!-- 3. 一页总览 / Overview -->
   <div class="section">
     <h2><span class="badge badge-purple">📋</span>一页总览 / Overview</h2>
@@ -377,6 +391,60 @@ const D = {
       "valueColor": "#10b981"
     }
   ],
+  "challenge": {
+    "camonSlim": {
+      "period": "3天",
+      "videos": 3036,
+      "creators": 1693,
+      "views": "6.9M",
+      "engagementRate": 0.0704,
+      "likes": "381.8K",
+      "comments": "14.1K",
+      "shares": "63.6K",
+      "filters": "13.8K"
+    },
+    "pova8": {
+      "period": "14天",
+      "videos": 2432,
+      "creators": 1452,
+      "views": "5.8M",
+      "engagementRate": 0.0334,
+      "likes": "161.2K",
+      "comments": "8.9K",
+      "shares": "13K",
+      "filters": "17K"
+    },
+    "stats": [
+      {"label": "视频提交", "value": "3,036", "bg": "rgba(245,158,11,.12)", "border": "#f59e0b", "color": "#d97706"},
+      {"label": "参与达人", "value": "1,693", "bg": "rgba(59,130,246,.12)", "border": "#3b82f6", "color": "#2563eb"},
+      {"label": "总播放量", "value": "6.9M", "bg": "rgba(16,185,129,.12)", "border": "#10b981", "color": "#059669"},
+      {"label": "互动率", "value": "7.04%", "bg": "rgba(236,72,153,.12)", "border": "#ec4899", "color": "#be185d"}
+    ],
+    "insights": [
+      {
+        "bg": "rgba(245,158,11,.08)",
+        "border": "#f59e0b",
+        "titleColor": "#d97706",
+        "title": "💡 挑战赛表现",
+        "items": [
+          "CAMON Slim 3天数据已超越 POVA 8 的 14天 Benchmark",
+          "视频提交量 3,036 vs 2,432，参与达人 1,693 vs 1,452",
+          "总播放 6.9M vs 5.8M，互动率 7.04% vs 3.34%（2.1倍）"
+        ]
+      },
+      {
+        "bg": "rgba(16,185,129,.08)",
+        "border": "#10b981",
+        "titleColor": "#059669",
+        "title": "💡 日均数据对比",
+        "items": [
+          "日均视频：1,012/天 vs 174/天（5.8倍）",
+          "日均播放：2.3M/天 vs 0.41M/天（5.6倍）",
+          "互动率提升 110%，用户参与度显著提升"
+        ]
+      }
+    ]
+  },
   "overview": [
     {
       "status": "green",
@@ -1646,6 +1714,37 @@ function render() {
       '<div class="value" style="' + valueStyle + '">' + k.value + trendHtml + '</div>' +
       '<div class="sub">' + k.sub + '</div></div>';
   }).join('');
+
+  // --- Challenge Zone ---
+  if (D.challenge) {
+    document.getElementById('challengeStats').innerHTML = D.challenge.stats.map(s =>
+      '<div style="background:linear-gradient(135deg,' + s.bg + ',' + s.bg.replace('.12', '.05') + ');border:1px solid ' + s.border + ';border-radius:12px;padding:14px;text-align:center;">' +
+      '<div style="font-size:11px;color:' + s.color + ';font-weight:700;margin-bottom:4px;">' + s.label + '</div>' +
+      '<div style="font-size:24px;font-weight:900;color:' + s.color + ';">' + s.value + '</div></div>'
+    ).join('');
+
+    var cs = D.challenge.camonSlim, p8 = D.challenge.pova8;
+    var rows = [
+      ['视频提交 / Videos', cs.videos.toLocaleString(), p8.videos.toLocaleString(), '🔥 ' + (cs.videos / p8.videos).toFixed(1) + 'x'],
+      ['参与达人 / Creators', cs.creators.toLocaleString(), p8.creators.toLocaleString(), '🔥 ' + (cs.creators / p8.creators).toFixed(1) + 'x'],
+      ['总播放量 / Views', cs.views, p8.views, '🔥 已超越'],
+      ['互动率 / ER', (cs.engagementRate * 100).toFixed(2) + '%', (p8.engagementRate * 100).toFixed(2) + '%', '🔥 ' + (cs.engagementRate / p8.engagementRate).toFixed(1) + 'x'],
+      ['点赞 / Likes', cs.likes, p8.likes, '🔥 ' + (parseFloat(cs.likes) / parseFloat(p8.likes)).toFixed(1) + 'x'],
+      ['评论 / Comments', cs.comments, p8.comments, '🔥 ' + (parseFloat(cs.comments) / parseFloat(p8.comments)).toFixed(1) + 'x'],
+      ['分享 / Shares', cs.shares, p8.shares, '🔥 ' + (parseFloat(cs.shares) / parseFloat(p8.shares)).toFixed(1) + 'x'],
+      ['滤镜使用 / Filters', cs.filters, p8.filters, (parseFloat(cs.filters) < parseFloat(p8.filters) ? '📉' : '🔥')]
+    ];
+    document.getElementById('challengeCompareTbody').innerHTML = rows.map(function(r) {
+      return '<tr><td>' + r[0] + '</td><td style="color:#f59e0b;font-weight:700;">' + r[1] + '</td><td>' + r[2] + '</td><td>' + r[3] + '</td></tr>';
+    }).join('');
+
+    document.getElementById('challengeInsights').innerHTML = D.challenge.insights.map(function(ins) {
+      return '<div style="background:linear-gradient(135deg,' + ins.bg + ',' + ins.bg.replace('.08', '.03') + ');border:1px solid ' + ins.border + ';border-radius:14px;padding:16px;">' +
+        '<div style="font-size:13px;font-weight:800;color:' + ins.titleColor + ';margin-bottom:8px;">' + ins.title + '</div>' +
+        '<ul style="margin:0;padding-left:18px;font-size:12px;color:#cbd5e1;line-height:1.8;">' +
+        ins.items.map(function(i) { return '<li>' + i + '</li>'; }).join('') + '</ul></div>';
+    }).join('');
+  }
 
   // --- Overview table ---
   document.getElementById('overviewTbody').innerHTML = D.overview.map(r => {
