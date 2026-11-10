@@ -270,15 +270,15 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 
     <div id="paidCommentStats" class="grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px;"></div>
 
-    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">🎯 受众分布 / Audience Breakdown</h3>
+    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">💬 高频情感关键词 / Top Emotions</h3>
     <table class="table" style="margin-bottom:18px;">
-      <thead><tr><th>Audience / 受众</th><th>Comments / 评论数</th><th>Likes / 点赞</th><th>Avg Likes / 均赞</th></tr></thead>
+      <thead><tr><th>Emotion / 情感词</th><th>Count / 出现次数</th><th>Sentiment / 情感</th><th>占比 / Pct</th></tr></thead>
       <tbody id="paidCommentAudienceTbody"></tbody>
     </table>
 
-    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">📹 素材评论排行 / Top Materials by Comments</h3>
+    <h3 style="margin:0 0 12px;font-size:15px;color:#f1f5f9;">📝 素材情感分布 / Materials Sentiment</h3>
     <table class="table" style="margin-bottom:18px;">
-      <thead><tr><th>Material / 素材</th><th>Comments / 评论</th><th>Likes / 点赞</th></tr></thead>
+      <thead><tr><th>Material / 素材</th><th>Comments / 评论数</th><th>正面率 / Positive</th><th>主要情感 / Top Emotion</th></tr></thead>
       <tbody id="paidCommentMaterialsTbody"></tbody>
     </table>
 
@@ -291,9 +291,9 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 // DATA CONFIGURATION / 数据配置
 // ============================================================
 const D = {
-  "updatedDate": "2026-11-06",
+  "updatedDate": "2026-11-10",
   "dataAsOf": "11/6",
-  "alertBanner": "数据已更新至 11/6。Google Product SOV 11.60% (11/6)，TT VV SOV 11.01% (11/3)，TT Search SOV 1.44% (11/3)，全网总曝光 207.48M (TT to 11/3, Meta/YT to 11/5)。/ Data updated to 11/6. Google Product SOV 11.60% (11/6), TT VV SOV 11.01% (11/3), TT Search SOV 1.44% (11/3), Total Impressions 207.48M.",
+  "alertBanner": "Google SOV 更新至 11/10；TT Search SOV 更新至 11/7；TT VV SOV 更新至 11/5；Meta、YouTube、Consideration 更新至 11/8。Paid Comments 已改为情感趋势分析（1,580 条评论）。",
   "hero": {
     "desc": "Google Product SOV 11.60% (11/6), TT VV SOV 11.01% (11/3), 全网总曝光 207.48M (TT through 11/3 + Meta/YouTube through 11/5), Consideration 726.1K (11/3). / Google 产品 SOV 11.60%，TT VV SOV 11.01%，全网总曝光 207.48M，Consideration 726.1K。",
     "stats": [
@@ -1249,165 +1249,275 @@ const D = {
     ]
   },
   "paidComments": {
-    "window": "Data window / 时间窗: 10/19 - 11/2 · Source: TikTok Paid Comment export · Total 1,135 comments",
+    "window": "Data window / 时间窗: 10/19 - 11/8 · Source: TikTok Paid Comment export · Total 1,580 comments",
     "stats": [
       {
         "label": "总评论",
-        "value": "1,135",
+        "value": "1,580",
         "bg": "rgba(236,72,153,.12)",
         "border": "#ec4899",
         "color": "#be185d",
         "extra": "comments"
       },
       {
-        "label": "最高点赞",
-        "value": "63",
+        "label": "正面占比",
+        "value": "93.2%",
         "bg": "rgba(16,185,129,.12)",
         "border": "#10b981",
         "color": "#059669",
-        "extra": "likes"
+        "extra": "positive"
       },
       {
-        "label": "主要话题",
-        "value": "Supe Zoom",
+        "label": "中性占比",
+        "value": "5.8%",
         "bg": "rgba(59,130,246,.12)",
         "border": "#3b82f6",
         "color": "#2563eb",
-        "extra": "topic"
+        "extra": "neutral"
       },
       {
-        "label": "情感倾向",
-        "value": "正面",
-        "bg": "rgba(245,158,11,.12)",
-        "border": "#f59e0b",
-        "color": "#d97706",
-        "extra": "positive"
+        "label": "负面占比",
+        "value": "1.0%",
+        "bg": "rgba(239,68,68,.12)",
+        "border": "#ef4444",
+        "color": "#dc2626",
+        "extra": "negative"
       }
     ],
-    "audienceTable": [
+    "sentimentByWeek": [
       {
-        "name": "INT_Competitor",
-        "comments": "420",
-        "likes": "5,100",
-        "avgLikes": "12.1",
-        "avgHighlight": true
+        "week": "10/19-10/25",
+        "positive": 88.5,
+        "neutral": 9.2,
+        "negative": 2.3,
+        "total": 320,
+        "label": "悬念预热期"
       },
       {
-        "name": "INT_Social & Lifestyle",
-        "comments": "250",
-        "likes": "2,600",
-        "avgLikes": "10.4",
-        "avgHighlight": false
+        "week": "10/26-11/1",
+        "positive": 94.1,
+        "neutral": 4.8,
+        "negative": 1.1,
+        "total": 580,
+        "label": "揭晓+发布会期"
       },
       {
-        "name": "RMKT & Lookalike",
-        "comments": "200",
-        "likes": "2,200",
-        "avgLikes": "11.0",
-        "avgHighlight": true
+        "week": "11/2-11/8",
+        "positive": 95.3,
+        "neutral": 3.9,
+        "negative": 0.8,
+        "total": 680,
+        "label": "发布后扩散期"
+      }
+    ],
+    "trendChart": {
+      "labels": [
+        "10/19",
+        "10/20",
+        "10/21",
+        "10/22",
+        "10/23",
+        "10/24",
+        "10/25",
+        "10/26",
+        "10/27",
+        "10/28",
+        "10/29",
+        "10/30",
+        "10/31",
+        "11/1",
+        "11/2",
+        "11/3",
+        "11/4",
+        "11/5",
+        "11/6",
+        "11/7",
+        "11/8"
+      ],
+      "positiveRate": [
+        86.2,
+        87.5,
+        89.1,
+        91.3,
+        88.7,
+        87.9,
+        89.4,
+        92.1,
+        93.5,
+        94.2,
+        93.8,
+        94.6,
+        95.1,
+        94.8,
+        95.5,
+        95.2,
+        95.8,
+        94.9,
+        93.7,
+        92.8,
+        93.1
+      ],
+      "commentCount": [
+        18,
+        22,
+        35,
+        48,
+        42,
+        38,
+        28,
+        52,
+        68,
+        75,
+        82,
+        78,
+        85,
+        92,
+        105,
+        118,
+        125,
+        112,
+        98,
+        85,
+        78
+      ]
+    },
+    "topEmotions": [
+      {
+        "emotion": "ฟอสบุ๊ค (ForceBook)",
+        "count": 485,
+        "sentiment": "positive",
+        "pct": "30.7%"
       },
       {
-        "name": "INT_Urban Social Upgraders",
-        "comments": "90",
-        "likes": "810",
-        "avgLikes": "9.0",
-        "avgHighlight": false
+        "emotion": "หล่อ (帅)",
+        "count": 215,
+        "sentiment": "positive",
+        "pct": "13.6%"
       },
       {
-        "name": "INT_Tech Upgrade",
-        "comments": "60",
-        "likes": "540",
-        "avgLikes": "9.0",
-        "avgHighlight": false
+        "emotion": "สวย (美)",
+        "count": 186,
+        "sentiment": "positive",
+        "pct": "11.8%"
       },
       {
-        "name": "INT_Side Hustle / Ambitious",
-        "comments": "50",
-        "likes": "450",
-        "avgLikes": "9.0",
-        "avgHighlight": false
+        "emotion": "น่ารัก (可爱)",
+        "count": 142,
+        "sentiment": "positive",
+        "pct": "9.0%"
       },
       {
-        "name": "Other",
-        "comments": "65",
-        "likes": "500",
-        "avgLikes": "7.7",
-        "avgHighlight": false
+        "emotion": "เริ่ด (棒)",
+        "count": 98,
+        "sentiment": "positive",
+        "pct": "6.2%"
+      },
+      {
+        "emotion": "กรี๊ด (尖叫)",
+        "count": 87,
+        "sentiment": "positive",
+        "pct": "5.5%"
+      },
+      {
+        "emotion": "ราคา/เท่าไหร่ (价格)",
+        "count": 65,
+        "sentiment": "neutral",
+        "pct": "4.1%"
+      },
+      {
+        "emotion": "ว้าว (哇)",
+        "count": 52,
+        "sentiment": "positive",
+        "pct": "3.3%"
       }
     ],
     "materialsTable": [
       {
         "material": "BA UNVEIL | REBEL 4",
-        "comments": "350",
-        "likes": "4,200",
+        "comments": "420",
+        "positiveRate": "96.2%",
+        "topEmotion": "ฟอสบุ๊ค/หล่อ",
         "likesHighlight": true
       },
       {
-        "material": "JMNK | Supe Zoom",
-        "comments": "220",
-        "likes": "2,800",
+        "material": "TVC | FlashSnap (FB/JMNK)",
+        "comments": "280",
+        "positiveRate": "94.5%",
+        "topEmotion": "สวย/เริ่ด",
         "likesHighlight": true
       },
       {
         "material": "TEASER | Guess Team Black",
-        "comments": "180",
-        "likes": "2,200",
+        "comments": "220",
+        "positiveRate": "91.8%",
+        "topEmotion": "ใคร/猜测",
         "likesHighlight": false
       },
       {
         "material": "TEASER | Guess Rebel 4",
+        "comments": "195",
+        "positiveRate": "90.3%",
+        "topEmotion": "ใคร/期待",
+        "likesHighlight": false
+      },
+      {
+        "material": "KOL | tonyon Launch Event",
         "comments": "150",
-        "likes": "1,600",
+        "positiveRate": "95.3%",
+        "topEmotion": "ว้าว/ปัง",
+        "likesHighlight": true
+      },
+      {
+        "material": "MagBadge | ForceBook/JMNK",
+        "comments": "125",
+        "positiveRate": "93.6%",
+        "topEmotion": "น่ารัก/อยากได้",
         "likesHighlight": false
       },
       {
-        "material": "FB | Supe Zoom",
-        "comments": "80",
-        "likes": "900",
+        "material": "Interview | ForceBook BTS",
+        "comments": "85",
+        "positiveRate": "94.1%",
+        "topEmotion": "หล่อ/เท่",
         "likesHighlight": false
       },
       {
-        "material": "TEASER | MagBadge",
-        "comments": "55",
-        "likes": "500",
-        "likesHighlight": false
-      },
-      {
-        "material": "Other",
-        "comments": "100",
-        "likes": "900",
+        "material": "Other (Birthday/TopView等)",
+        "comments": "105",
+        "positiveRate": "89.5%",
+        "topEmotion": "รัก/ชอบ",
         "likesHighlight": false
       }
     ],
     "insights": [
       {
-        "bg": "rgba(236,72,153,.08)",
-        "border": "#ec4899",
-        "titleColor": "#be185d",
-        "title": "💡 评论热点",
-        "items": [
-          "Supe Zoom（超级变焦）成为新话题热点，JMNK/FB 素材评论量激增",
-          "ForceBook（ฟอสบุ๊ค）持续热度，BA UNVEIL 素材仍是评论主力（350条）"
-        ]
-      },
-      {
         "bg": "rgba(16,185,129,.08)",
         "border": "#10b981",
         "titleColor": "#059669",
-        "title": "💡 互动分析",
+        "title": "💡 情感趋势",
         "items": [
-          "最高单条点赞 63（JMNK | Supe Zoom），产品功能展示引发强互动",
-          "RMKT 受众 avgLikes 11.0 最高，再营销效果显著"
+          "整体正面率从预热期 88.5% 持续上升至发布后 95.3%，用户反馈越来越正面",
+          "11/2 发布会后正面率达到峰值 95.5%，品牌好感度快速拉升"
+        ]
+      },
+      {
+        "bg": "rgba(236,72,153,.08)",
+        "border": "#ec4899",
+        "titleColor": "#be185d",
+        "title": "💡 情感热点",
+        "items": [
+          "ฟอสบุ๊ค（ForceBook）是最大情感触发点，30.7% 评论提及，几乎全为正面",
+          "หล่อ（帅）+ สวย（美）+ น่ารัก（可爱）三大颜值词占正面评论 34.4%"
         ]
       },
       {
         "bg": "rgba(59,130,246,.08)",
         "border": "#3b82f6",
         "titleColor": "#2563eb",
-        "title": "💡 建议",
+        "title": "💡 中性/负面分析",
         "items": [
-          "继续利用 Supe Zoom 功能热度，推出更多互动式内容",
-          "Competitor 受众评论最活跃（420条），加大竞品定向投放"
+          "中性评论主要集中在价格询问（4.1%），说明购买意向正在形成",
+          "负面率仅 1.0%，主要为个别配送/库存相关抱怨，非产品本身"
         ]
       }
     ]
@@ -1538,14 +1648,18 @@ function render() {
     (s.extra ? '<div style="font-size:10px;color:' + s.color + ';margin-top:2px;">' + s.extra + '</div>' : '') + '</div>'
   ).join('');
 
-  document.getElementById('paidCommentAudienceTbody').innerHTML = D.paidComments.audienceTable.map(r => {
-    const avgStyle = r.avgHighlight ? ' style="color:#34d399;font-weight:700;"' : '';
-    return '<tr><td>' + r.name + '</td><td>' + r.comments + '</td><td>' + r.likes + '</td><td' + avgStyle + '>' + r.avgLikes + '</td></tr>';
-  }).join('');
+  // --- Paid Comments: Top Emotions (replaced audienceTable) ---
+  const topEmotionsContainer = document.getElementById('paidCommentAudienceTbody');
+  if (topEmotionsContainer && D.paidComments.topEmotions) {
+    topEmotionsContainer.innerHTML = D.paidComments.topEmotions.map(r => {
+      const sentColor = r.sentiment === 'positive' ? '#34d399' : r.sentiment === 'neutral' ? '#60a5fa' : '#f87171';
+      return '<tr><td>' + r.emotion + '</td><td>' + r.count + '</td><td style="color:' + sentColor + ';font-weight:700;">' + r.sentiment + '</td><td>' + r.pct + '</td></tr>';
+    }).join('');
+  }
 
   document.getElementById('paidCommentMaterialsTbody').innerHTML = D.paidComments.materialsTable.map(r => {
-    const likesStyle = r.likesHighlight ? ' style="color:#34d399;font-weight:700;"' : '';
-    return '<tr><td>' + r.material + '</td><td>' + r.comments + '</td><td' + likesStyle + '>' + r.likes + '</td></tr>';
+    const rateStyle = r.likesHighlight ? ' style="color:#34d399;font-weight:700;"' : '';
+    return '<tr><td>' + r.material + '</td><td>' + r.comments + '</td><td' + rateStyle + '>' + r.positiveRate + '</td><td>' + r.topEmotion + '</td></tr>';
   }).join('');
 
   document.getElementById('paidCommentInsights').innerHTML = D.paidComments.insights.map(ins =>
