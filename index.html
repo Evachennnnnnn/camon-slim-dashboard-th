@@ -307,7 +307,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 const D = {
   "updatedDate": "2026-11-17",
   "dataAsOf": "11/17",
-  "alertBanner": "数据更新至 11/17（以各表最新非空日期为准）：Google Brand/Product SOV 2.08%/16.16%（11/17）；TT VV/Search SOV 13.56%/1.30%（11/14）；Meta 曝光 4.83M（11/16）；Consideration 1.97M（11/14）。TT日消耗数据到11/16，TT SOV 及Consideration后续日期在源表为空，未推算。",
+  "alertBanner": "数据更新至 11/17：Google Product SOV 16.16%（11/17），TT VV SOV 13.56%（11/14），Consideration 1.97M（11/14），Consideration Rate 10.83%（11/14）。",
   "hero": {
     "desc": "Google Brand SOV 2.08% and Product SOV 16.16% (11/17); TT VV SOV 13.56% and Search SOV 1.30% (11/14); Meta impressions 4.83M (11/16); Consideration 1.97M (11/14).",
     "stats": [
@@ -377,6 +377,16 @@ const D = {
       "trend": "↑",
       "trendClass": "trend-up",
       "sub": "CAMON Slim KPI 目标 1.5M+ · As of / 截至 11/14",
+      "borderLeft": "#10b981",
+      "valueColor": "#10b981"
+    },
+    {
+      "label": "Consideration Rate",
+      "statusDot": "status-green",
+      "value": "10.83%",
+      "trend": "→",
+      "trendClass": "trend-flat",
+      "sub": "Consideration / TECNO曝光 · As of / 截至 11/14",
       "borderLeft": "#10b981",
       "valueColor": "#10b981"
     },
@@ -523,6 +533,13 @@ const D = {
       "status": "green",
       "metric": "Consideration 总量 / Total",
       "current": "1.97M",
+      "target": "—",
+      "date": "11/14"
+    },
+    {
+      "status": "green",
+      "metric": "Consideration Rate",
+      "current": "10.83%",
       "target": "—",
       "date": "11/14"
     }
@@ -1071,7 +1088,71 @@ const D = {
       5376920,
       5360190
     ],
-    "note": "Brand Consideration latest 1.97M (11/14). / 本品牌 Consideration 最新 1.97M（11/14）。"
+    "note": "Brand Consideration latest 1.97M (11/14). / 本品牌 Consideration 最新 1.97M（11/14）。",
+    "rateData": [
+      107.5,
+      88.07,
+      42.28,
+      23.29,
+      20.81,
+      11.88,
+      12.37,
+      10.09,
+      10.71,
+      12.1,
+      8.56,
+      6.95,
+      7.49,
+      11.14,
+      8.15,
+      5.71,
+      4.15,
+      6.88,
+      4.08,
+      3.67,
+      2.48,
+      7.83,
+      9.01,
+      15.44,
+      13.42,
+      13.24,
+      10.9,
+      10.22,
+      10.83
+    ],
+    "rateLabels": [
+      "10/17",
+      "10/18",
+      "10/19",
+      "10/20",
+      "10/21",
+      "10/22",
+      "10/23",
+      "10/24",
+      "10/25",
+      "10/26",
+      "10/27",
+      "10/28",
+      "10/29",
+      "10/30",
+      "10/31",
+      "11/1",
+      "11/2",
+      "11/3",
+      "11/4",
+      "11/5",
+      "11/6",
+      "11/7",
+      "11/8",
+      "11/9",
+      "11/10",
+      "11/11",
+      "11/12",
+      "11/13",
+      "11/14"
+    ],
+    "latestRate": 10.83,
+    "rateNote": "Consideration Rate = Consideration / TECNO总曝光，最新 10.83% (11/14)"
   },
   "spend": {
     "labels": [
