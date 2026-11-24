@@ -72,8 +72,11 @@ D.ttSov.vvData.push(null); // 11/22 VV SOV 为空
 D.ttSov.searchData.push(1.23);
 D.ttSov.note = 'VV SOV latest 5.54% (11/21); Search SOV latest 1.23% (11/22). 11/22-23 VV source cells blank / TikTok VV声量最新数据到11/21，11/22-23源表尚未回填';
 
-// === SPEND - no new data (11/22-23 only have cost, no exposure) ===
-// Keep as is
+// === SPEND - add 11/22, 11/23 ===
+D.spend.labels.push('11/22', '11/23');
+D.spend.dailySpend.push(3067.44, 2058.51);
+D.spend.spendProgress.push(1.01569023952096, 1.02801664670659);
+D.spend.exposureProgress.push(null, null); // 11/22-23 曝光数据为空
 
 // === CONSIDERATION - no new data (11/22-23 are empty) ===
 // Keep as is
