@@ -123,6 +123,10 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
 .status-tag-green { background:rgba(16,185,129,.2); color:#10b981; }
 .status-tag-yellow { background:rgba(245,158,11,.2); color:#f59e0b; }
 .status-tag-red { background:rgba(239,68,68,.2); color:#ef4444; }
+.table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+@media (max-width:768px) {
+  .table-wrap .table { min-width:620px; }
+}
 </style>
 </head>
 <body>
@@ -205,7 +209,7 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; backgro
       <div class="note" id="competitorCompareNote" style="margin-bottom:10px;"></div>
       <div class="chart" style="height:220px;margin-bottom:12px;"><canvas id="productSovCompareChart"></canvas></div>
       <div style="background:linear-gradient(135deg,#f0f4ff,#e8edf5);border-radius:16px;padding:24px;text-align:center;border:1px solid #c7d2fe;">
-        <a href="https://trends.google.com/trends/explore?date=today%201-m&geo=TH&q=CAMON%20Slim,OPPO%20Reno%2016%20F,VIVO%20V80%20Lite,Redmi%20Note%2017%20Pro&hl=en" target="_blank" style="display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(37,99,235,.3);"> 打开 Google Trends 查看实时图表 →</a>
+        <a href="https://trends.google.com/trends/explore?date=today%201-m&geo=TH&q=CAMON%20Slim,OPPO%20Reno%2016%20F,VIVO%20V80%20Lite,Redmi%20Note%2017%20Pro&hl=en" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(37,99,235,.3);"> 打开 Google Trends 查看实时图表 →</a>
         <div style="font-size:10px;color:#94a3b8;margin-top:10px;">竞品数据来自 Google Trends 相对搜索热度，非精确市场份额 / Competitor data from Google Trends relative search interest, not exact market share</div>
       </div>
       <div class="note" id="competitorCompareInsight"></div>
@@ -2064,6 +2068,15 @@ const D = {
 // RENDER FUNCTION / 渲染函数
 // ============================================================
 function render() {
+  // --- Wrap tables for mobile horizontal scroll ---
+  document.querySelectorAll('table.table').forEach(function(t) {
+    if (t.parentElement && t.parentElement.classList.contains('table-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'table-wrap';
+    t.parentNode.insertBefore(wrap, t);
+    wrap.appendChild(t);
+  });
+
   // --- Header subtitle ---
   document.getElementById('headerSub').textContent =
     'Google Trends + TikTok Video View + TikTok Search + Spend Progress + Exposure Progress + Leaderboard · Updated ' + D.updatedDate;
@@ -2130,7 +2143,7 @@ function render() {
   document.getElementById('topVideosContainer').innerHTML = D.topVideos.map(v => {
     const cls = v.gold ? 'leaderboard-card gold' : 'leaderboard-card';
     return '<div class="' + cls + '"><div class="leaderboard-rank">' + v.rank + '</div>' +
-      '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank">' + v.name + '</a></div>' +
+      '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank" rel="noopener noreferrer">' + v.name + '</a></div>' +
       '<div class="leaderboard-value">' + v.value + '</div></div>';
   }).join('');
 
@@ -2139,7 +2152,7 @@ function render() {
     const cls = v.gold ? 'leaderboard-card gold' : 'leaderboard-card';
     const nameHtml = v.pending
       ? '<div class="leaderboard-name">' + v.name + '</div>'
-      : '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank">' + v.name + '</a></div>';
+      : '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank" rel="noopener noreferrer">' + v.name + '</a></div>';
     const valueStyle = v.pending ? ' style="color:#94a3b8;font-size:14px;"' : '';
     return '<div class="' + cls + '"><div class="leaderboard-rank">' + v.rank + '</div>' +
       nameHtml + '<div class="leaderboard-value"' + valueStyle + '>' + v.value + '</div></div>';
@@ -2194,7 +2207,7 @@ function render() {
   document.getElementById('keywordTopVideos').innerHTML = D.keywords.topVideos.map(v => {
     const cls = v.gold ? 'leaderboard-card gold' : 'leaderboard-card';
     return '<div class="' + cls + '"><div class="leaderboard-rank">' + v.rank + '</div>' +
-      '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank">' + v.name + '</a></div>' +
+      '<div class="leaderboard-name"><a href="' + v.url + '" target="_blank" rel="noopener noreferrer">' + v.name + '</a></div>' +
       '<div class="leaderboard-value">' + v.value + '</div>' +
       '<div style="font-size:11px;color:#94a3b8;margin-top:4px;">' + v.extra + '</div></div>';
   }).join('');
@@ -2263,7 +2276,7 @@ function render() {
     },
     scales: {
       x: {
-        ticks: { color: '#94a3b8', font: { size: 10 } },
+        ticks: { color: '#94a3b8', font: { size: 10 }, autoSkip: true, maxTicksLimit: 10, maxRotation: 45, minRotation: 0 },
         grid: { color: 'rgba(148, 163, 184, 0.08)', drawBorder: false }
       },
       y: {
@@ -2277,12 +2290,26 @@ function render() {
   function mergeDefaults(overrides) {
     var base = JSON.parse(JSON.stringify(chartDefaults));
     if (overrides.scales) {
-      if (overrides.scales.x) { Object.assign(base.scales.x, overrides.scales.x); delete overrides.scales.x; }
-      if (overrides.scales.y) { Object.assign(base.scales.y, overrides.scales.y); delete overrides.scales.y; }
-      if (overrides.scales.y1) { base.scales.y1 = overrides.scales.y1; delete overrides.scales.y1; }
+      ['x', 'y', 'y1'].forEach(function(key) {
+        if (overrides.scales[key]) {
+          base.scales[key] = Object.assign({}, base.scales[key] || {}, overrides.scales[key]);
+        }
+      });
     }
-    if (overrides.plugins) { Object.assign(base.plugins, overrides.plugins); delete overrides.plugins; }
-    return Object.assign(base, overrides);
+    if (overrides.plugins) {
+      Object.keys(overrides.plugins).forEach(function(key) {
+        var incoming = overrides.plugins[key];
+        if (incoming && typeof incoming === 'object' && base.plugins[key]) {
+          base.plugins[key] = Object.assign({}, base.plugins[key], incoming);
+        } else {
+          base.plugins[key] = incoming;
+        }
+      });
+    }
+    var rest = Object.assign({}, overrides);
+    delete rest.scales;
+    delete rest.plugins;
+    return Object.assign(base, rest);
   }
 
   // Google Brand SOV
@@ -2344,23 +2371,31 @@ function render() {
     type: 'line',
     data: {
       labels: D.competitorCompare.chartLabels,
-      datasets: D.competitorCompare.datasets.map(function(ds) {
-        return {
-          label: ds.label,
-          data: ds.data,
-          borderColor: ds.borderColor,
-          backgroundColor: ds.bg || 'transparent',
-          fill: ds.fill || false,
-          tension: 0.4,
-          pointRadius: ds.pointRadius || 4,
-          pointHoverRadius: 7,
-          pointBackgroundColor: ds.borderColor,
-          pointBorderColor: '#fff',
-          pointBorderWidth: 2,
-          borderWidth: ds.width || 2,
-          borderDash: ds.dash || undefined
-        };
-      })
+      datasets: (function() {
+        var allDs = D.competitorCompare.datasets || [];
+        var activeDs = allDs.filter(function(ds) { return ds && ds.data && ds.data.length > 0; });
+        if (activeDs.length < allDs.length) {
+          var noteEl = document.getElementById('competitorCompareNote');
+          if (noteEl) noteEl.textContent += ' · 竞品数据尚未回填，当前仅显示本品牌 / Competitor data pending';
+        }
+        return activeDs.map(function(ds) {
+          return {
+            label: ds.label,
+            data: ds.data,
+            borderColor: ds.borderColor,
+            backgroundColor: ds.bg || 'transparent',
+            fill: ds.fill || false,
+            tension: 0.4,
+            pointRadius: ds.pointRadius || 4,
+            pointHoverRadius: 7,
+            pointBackgroundColor: ds.borderColor,
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            borderWidth: ds.width || 2,
+            borderDash: ds.dash || undefined
+          };
+        });
+      })()
     },
     options: mergeDefaults({
       plugins: { legend: { labels: { color: '#475569', font: { size: 10 }, padding: 10, usePointStyle: true } } },
@@ -2390,7 +2425,7 @@ function render() {
           pointBorderWidth: 2,
           borderWidth: 2.5,
           yAxisID: 'y',
-          spanGaps: true
+          spanGaps: false
         },
         {
           label: 'TT Search SOV',
@@ -2516,8 +2551,20 @@ function render() {
     },
     options: mergeDefaults({
       scales: {
-        y: { type: 'linear', position: 'left', ticks: { color: '#94a3b8', font: { size: 10 }, callback: function(v) { return v + '%'; } }, grid: { color: 'rgba(148,163,184,0.08)' }, beginAtZero: true, title: { display: true, text: 'Progress % / 进度', color: '#64748b', font: { size: 10 } } },
-        y1: { type: 'linear', position: 'right', ticks: { color: '#94a3b8', font: { size: 10 }, callback: function(v) { return '$' + v; } }, grid: { drawOnChartArea: false }, beginAtZero: true, title: { display: true, text: 'Spend $ / 消耗', color: '#64748b', font: { size: 10 } } }
+        y: { type: 'linear', position: 'left', ticks: { color: '#94a3b8', font: { size: 10 }, callback: function(v) { return (v * 100).toFixed(0) + '%'; } }, grid: { color: 'rgba(148,163,184,0.08)' }, beginAtZero: true, title: { display: true, text: 'Progress % / 进度', color: '#64748b', font: { size: 10 } } },
+        y1: { type: 'linear', position: 'right', ticks: { color: '#94a3b8', font: { size: 10 }, callback: function(v) { return '$' + v.toLocaleString(); } }, grid: { drawOnChartArea: false }, beginAtZero: true, title: { display: true, text: 'Spend $ / 消耗', color: '#64748b', font: { size: 10 } } }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              if (ctx.raw == null) return ctx.dataset.label + ': —';
+              if (ctx.dataset.yAxisID === 'y') return ctx.dataset.label + ': ' + (ctx.raw * 100).toFixed(1) + '%';
+              if (ctx.dataset.yAxisID === 'y1') return ctx.dataset.label + ': $' + ctx.raw.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+              return ctx.dataset.label + ': ' + ctx.raw;
+            }
+          }
+        }
       }
     })
   });
